@@ -83,28 +83,10 @@ class HitomiScraper:
         return doujinshi_urls
 
 def main():
-    # print(get_tags_str([
-    #     "female:milf",
-    #     "language:english",
-    #     "neighbor",
-        
-    #     "-female:futanari",
-    #     "-male:feminization",
-    #     "-female:shemale",
-        
-    #     "-female:bestiality",
-    #     "-male:bestiality",
-    #     "-female:humiliation",
-    #     "-male:humiliation",
-    #     "-female:transformation",
-    #     "-male:transformation",
-    # ]))
-    
     scraper = HitomiScraper()
     doujinshi_urls = []
     for url in [
-        "https://hitomi.la/artist/gin%20eiji-english.html",
-        "https://hitomi.la/artist/kawaisaw-english.html",
+        ""
     ]:
         doujinshi_urls += scraper.scrape_all(url)
     new_doujinshi_urls = []
@@ -113,5 +95,24 @@ def main():
             new_doujinshi_urls.append(doujinshi_url)
     logging.info(f"found {len(new_doujinshi_urls)} new urls")
     write_urls_to_txt(f"{time.time()}.txt", new_doujinshi_urls)
+
+# print(get_tags_str([
+#     # "female:milf",
+#     # "language:english",
+#     # "neighbor",
+    
+#     "female:emotionless_sex",
+    
+#     "-female:futanari",
+#     "-male:feminization",
+#     "-female:shemale",
+    
+#     "-female:bestiality",
+#     "-male:bestiality",
+#     "-female:humiliation",
+#     "-male:humiliation",
+#     "-female:transformation",
+#     "-male:transformation",
+# ]))
 
 main()

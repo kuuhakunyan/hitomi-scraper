@@ -86,9 +86,12 @@ def main():
     scraper = HitomiScraper()
     doujinshi_urls = []
     for url in [
-        ""
+        "https://hitomi.la/search.html?-female%3Acheating%20language%3Aenglish%20female%3Asole_female%20male%3Asole_male%20girlfriend%20-female%3Afutanari%20-male%3Afeminization%20-female%3Ashemale%20-female%3Abestiality%20-male%3Abestiality%20-female%3Ahumiliation%20-male%3Ahumiliation%20-female%3Atransformation%20-male%3Atransformation%20-type%3Aanime%20-female%3Ascat_insertion%20-female%3Agiantess%20-female%3Afemales_only%20-tag%3Awestern_cg%20-tag%3Awestern_imageset%20-tag%3Awestern_non-h%20-female%3Aminigirl%20-male%3Aminiguy%20-female%3Ainsect_girl%20-male%3Ainsect_boy%20-female%3Ascat%20-male%3Ascat%20-female%3Afarting%20-male%3Afarting%20-female%3Ainsect%20-male%3Ainsect%20-female%3Aguro%20-male%3Aguro%20-female%3Aamputee%20-male%3Aamputee%20-female%3Aomorashi%20-male%3Aomorashi%20-female%3Ainfantilism%20-male%3Ainfantilism%20-female%3Avore%20-male%3Avore%20-female%3Ashrinking%20-male%3Ashrinking%20-female%3Aunbirth%20-male%3Aunbirth%20-female%3Asmell%20-male%3Asmell%20-female%3Acbt%20-male%3Acbt%20-female%3Abdsm%20-male%3Abdsm%20-female%3Abondage%20-male%3Abondage%20-female%3Afurry%20-male%3Afurry%20-female%3Ahuman_on_furry%20-male%3Ahuman_on_furry%20-female%3Aurination%20-male%3Aurination%20-female%3Aprolapse%20-male%3Aprolapse%20-female%3Amidget%20-male%3Amidget%20-female%3Aabortion%20-male%3Aabortion%20-female%3Aanalphagia%20-male%3Aanalphagia%20-female%3Asnuff%20-male%3Asnuff%20-female%3Aasphyxiation%20-male%3Aasphyxiation",
+        "https://hitomi.la/search.html?-female%3Acheating%20language%3Aenglish%20female%3Asole_female%20male%3Asole_male%20kanojo%20-female%3Afutanari%20-male%3Afeminization%20-female%3Ashemale%20-female%3Abestiality%20-male%3Abestiality%20-female%3Ahumiliation%20-male%3Ahumiliation%20-female%3Atransformation%20-male%3Atransformation%20-type%3Aanime%20-female%3Ascat_insertion%20-female%3Agiantess%20-female%3Afemales_only%20-tag%3Awestern_cg%20-tag%3Awestern_imageset%20-tag%3Awestern_non-h%20-female%3Aminigirl%20-male%3Aminiguy%20-female%3Ainsect_girl%20-male%3Ainsect_boy%20-female%3Ascat%20-male%3Ascat%20-female%3Afarting%20-male%3Afarting%20-female%3Ainsect%20-male%3Ainsect%20-female%3Aguro%20-male%3Aguro%20-female%3Aamputee%20-male%3Aamputee%20-female%3Aomorashi%20-male%3Aomorashi%20-female%3Ainfantilism%20-male%3Ainfantilism%20-female%3Avore%20-male%3Avore%20-female%3Ashrinking%20-male%3Ashrinking%20-female%3Aunbirth%20-male%3Aunbirth%20-female%3Asmell%20-male%3Asmell%20-female%3Acbt%20-male%3Acbt%20-female%3Abdsm%20-male%3Abdsm%20-female%3Abondage%20-male%3Abondage%20-female%3Afurry%20-male%3Afurry%20-female%3Ahuman_on_furry%20-male%3Ahuman_on_furry%20-female%3Aurination%20-male%3Aurination%20-female%3Aprolapse%20-male%3Aprolapse%20-female%3Amidget%20-male%3Amidget%20-female%3Aabortion%20-male%3Aabortion%20-female%3Aanalphagia%20-male%3Aanalphagia%20-female%3Asnuff%20-male%3Asnuff%20-female%3Aasphyxiation%20-male%3Aasphyxiation"
     ]:
         doujinshi_urls += scraper.scrape_all(url)
+    if len(doujinshi_urls) == 0:
+        return
     new_doujinshi_urls = []
     for doujinshi_url in set(doujinshi_urls):
         if not get_doujinshi_id_from_url(doujinshi_url) in get_doujinshi_id_set_from_dir("Z:/hitomi"):
@@ -101,7 +104,9 @@ def main():
 #     # "language:english",
 #     # "neighbor",
     
-#     "female:emotionless_sex",
+#     # "female:emotionless_sex",
+    
+#     "-female:cheating language:english female:sole_female male:sole_male kanojo"
     
 #     "-female:futanari",
 #     "-male:feminization",
